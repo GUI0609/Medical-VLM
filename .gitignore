@@ -1,0 +1,39 @@
+# Private inbox and local inputs
+inbox/
+
+# Python environments and build output
+.venv/
+venv/
+env/
+site/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.ppk
+*.token
+*.secret
+id_rsa*
+id_ed25519*
+.ssh/
+secrets/
+private/
+
+# Logs and caches
+*.log
+logs/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
