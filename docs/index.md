@@ -6,9 +6,14 @@ hide:
 
 <section class="farm-hero">
   <div class="farm-hero__shade"></div>
+  <div class="game-hud">
+    <span>今日任务：整理 1 篇笔记</span>
+    <span>经验 +20</span>
+    <span>晴天</span>
+  </div>
   <div class="farm-hero__content">
-    <p class="farm-eyebrow">Medical-VLM Learning Manor</p>
-    <h1><span>Medical-VLM</span><span>学习庄园</span></h1>
+    <p class="farm-eyebrow">Medical-VLM Game Notes</p>
+    <h1><span>Medical-VLM</span><span>学习小镇</span></h1>
     <p class="farm-hero__lead">
       把医学视觉语言模型、工程实践、论文阅读和科研复盘，整理成可继续生长的公开学习笔记。
     </p>
@@ -19,6 +24,14 @@ hide:
   </div>
   <div class="farm-cloud farm-cloud--one"></div>
   <div class="farm-cloud farm-cloud--two"></div>
+  <img class="study-mascot" src="assets/images/study-mascot.webp" alt="学习小镇原创卡通吉祥物" />
+  <nav class="game-dock" aria-label="学习小镇快捷入口">
+    <a href="notes/ai/">AI</a>
+    <a href="notes/programming/">编程</a>
+    <a href="notes/papers/">论文</a>
+    <a href="notes/research/">科研</a>
+    <a href="blog/">日志</a>
+  </nav>
 </section>
 
 <section class="farm-section farm-section--intro">

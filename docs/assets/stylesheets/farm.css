@@ -4,14 +4,16 @@
   --md-primary-fg-color--dark: #3f6f2d;
   --md-accent-fg-color: #e8902d;
   --farm-cream: #fff7df;
-  --farm-paper: #fffaf0;
-  --farm-grass: #7eba45;
-  --farm-grass-dark: #3f7b32;
-  --farm-sky: #8fd7f5;
-  --farm-sun: #ffd36b;
-  --farm-carrot: #e8902d;
-  --farm-wood: #9b6434;
-  --farm-ink: #29422f;
+  --farm-paper: #fff9df;
+  --farm-grass: #85d64a;
+  --farm-grass-dark: #31893c;
+  --farm-sky: #50c9f5;
+  --farm-water: #26c8db;
+  --farm-sun: #ffe15d;
+  --farm-carrot: #ff8a25;
+  --farm-peach: #ffbf8c;
+  --farm-wood: #a4612b;
+  --farm-ink: #23412e;
   --farm-line: rgba(83, 111, 55, 0.22);
   --farm-shadow: 0 18px 42px rgba(64, 92, 44, 0.16);
 }
@@ -35,7 +37,10 @@
 }
 
 body {
-  background: linear-gradient(180deg, rgba(255, 247, 223, 0.98), rgba(244, 250, 226, 0.95) 42%, rgba(255, 250, 240, 0.98));
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 225, 93, 0.22), transparent 28rem),
+    radial-gradient(circle at 86% 12%, rgba(38, 200, 219, 0.18), transparent 26rem),
+    linear-gradient(180deg, rgba(255, 247, 223, 0.98), rgba(240, 255, 214, 0.95) 42%, rgba(255, 250, 240, 0.98));
 }
 
 [data-md-color-scheme="slate"] body {
@@ -44,7 +49,7 @@ body {
 
 .md-header,
 .md-tabs {
-  background: linear-gradient(90deg, #4f8f37, #7eba45 58%, #e8a447);
+  background: linear-gradient(90deg, #31a946, #8edb45 48%, #ffb638);
 }
 
 .md-header {
@@ -75,15 +80,17 @@ body {
   display: grid;
   align-items: center;
   background:
-    linear-gradient(90deg, rgba(255, 247, 223, 0.92), rgba(255, 247, 223, 0.68) 36%, rgba(255, 247, 223, 0.08) 68%),
-    url("../images/cozy-farm-study-hero.webp") center right / cover no-repeat;
-  border-bottom: 1px solid var(--farm-line);
+    linear-gradient(90deg, rgba(255, 251, 224, 0.96), rgba(255, 251, 224, 0.78) 31%, rgba(255, 251, 224, 0.16) 60%, rgba(255, 251, 224, 0) 100%),
+    url("../images/game-map-hero.webp") center right / cover no-repeat;
+  border: 4px solid rgba(255, 184, 56, 0.42);
+  border-radius: 12px;
+  box-shadow: 0 18px 0 rgba(141, 183, 72, 0.16), 0 24px 42px rgba(47, 110, 41, 0.18);
 }
 
 [data-md-color-scheme="slate"] .farm-hero {
   background:
-    linear-gradient(90deg, rgba(23, 34, 20, 0.92), rgba(23, 34, 20, 0.7) 38%, rgba(23, 34, 20, 0.12) 70%),
-    url("../images/cozy-farm-study-hero.webp") center right / cover no-repeat;
+    linear-gradient(90deg, rgba(23, 34, 20, 0.92), rgba(23, 34, 20, 0.66) 34%, rgba(23, 34, 20, 0.1) 70%),
+    url("../images/game-map-hero.webp") center right / cover no-repeat;
 }
 
 .farm-hero::after {
@@ -98,7 +105,9 @@ body {
 .farm-hero__shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 244, 205, 0.34));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 244, 205, 0.12)),
+    radial-gradient(circle at 72% 68%, rgba(255, 255, 255, 0.2), transparent 18rem);
   pointer-events: none;
 }
 
@@ -108,8 +117,8 @@ body {
 
 .farm-hero__content {
   position: relative;
-  z-index: 1;
-  max-width: 620px;
+  z-index: 3;
+  max-width: 560px;
   padding: clamp(3.6rem, 7vw, 6.4rem) clamp(1.2rem, 5vw, 4.8rem);
 }
 
@@ -121,14 +130,16 @@ body {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .farm-hero h1 {
   margin: 0.35rem 0 0.85rem;
   color: var(--farm-ink);
-  font-size: clamp(2.35rem, 4.4vw, 4.25rem);
+  font-size: clamp(2.3rem, 4.3vw, 4.05rem);
   line-height: 1.02;
   letter-spacing: 0;
+  text-shadow: 0 3px 0 rgba(255, 255, 255, 0.72), 0 12px 24px rgba(59, 100, 39, 0.14);
 }
 
 .farm-hero h1 span {
@@ -160,24 +171,92 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0.55rem 1rem;
-  border: 2px solid rgba(82, 111, 49, 0.24);
+  border: 3px solid rgba(137, 96, 43, 0.28);
   border-radius: 8px;
   background: rgba(255, 250, 240, 0.84);
   color: var(--farm-ink) !important;
   font-weight: 800;
-  box-shadow: 0 8px 18px rgba(64, 92, 44, 0.12);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.78), 0 8px 0 rgba(140, 96, 35, 0.12), 0 12px 20px rgba(64, 92, 44, 0.12);
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
 .farm-button:hover,
 .farm-button:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(64, 92, 44, 0.2);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.78), 0 10px 0 rgba(140, 96, 35, 0.14), 0 18px 28px rgba(64, 92, 44, 0.2);
 }
 
 .farm-button--primary {
   border-color: rgba(232, 144, 45, 0.28);
-  background: linear-gradient(180deg, #ffd36b, #e8902d);
+  background: linear-gradient(180deg, #ffe15d, #ff962c);
+}
+
+.game-hud {
+  position: absolute;
+  top: 1rem;
+  left: clamp(1rem, 3vw, 2rem);
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.game-hud span,
+.game-dock a {
+  border: 3px solid rgba(128, 93, 45, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 250, 222, 0.86);
+  color: var(--farm-ink) !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.72), 0 6px 0 rgba(142, 99, 42, 0.1);
+}
+
+.game-hud span {
+  padding: 0.26rem 0.65rem;
+}
+
+.game-dock {
+  position: absolute;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: 1rem;
+  z-index: 5;
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.42rem;
+  border: 3px solid rgba(128, 93, 45, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 250, 222, 0.76);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 28px rgba(54, 104, 36, 0.18);
+}
+
+.game-dock a {
+  display: grid;
+  min-width: 3.15rem;
+  min-height: 2.35rem;
+  place-items: center;
+  padding: 0.25rem 0.48rem;
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.game-dock a:hover,
+.game-dock a:focus-visible {
+  background: #fff2a8;
+  transform: translateY(-3px);
+}
+
+.study-mascot {
+  position: absolute;
+  right: clamp(1.2rem, 4vw, 4rem);
+  bottom: 4.9rem;
+  z-index: 4;
+  width: min(21vw, 220px);
+  min-width: 128px;
+  filter: drop-shadow(0 14px 18px rgba(58, 94, 36, 0.22));
+  animation: mascot-bob 3.6s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .farm-cloud {
@@ -228,14 +307,16 @@ body {
   --farm-rotate-x: 0deg;
   --farm-rotate-y: 0deg;
   position: relative;
-  min-height: 12.4rem;
+  min-height: 12.8rem;
   overflow: hidden;
-  padding: 1rem;
-  border: 1px solid var(--farm-line);
-  border-radius: 8px;
-  background: var(--farm-paper);
+  padding: 1.05rem;
+  border: 3px solid rgba(151, 111, 47, 0.22);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 249, 223, 0.96)),
+    var(--farm-paper);
   color: var(--farm-ink) !important;
-  box-shadow: var(--farm-shadow);
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.86), var(--farm-shadow);
   transform: perspective(780px) rotateX(var(--farm-rotate-x)) rotateY(var(--farm-rotate-y)) translateY(0);
   transform-style: preserve-3d;
   transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
@@ -246,7 +327,7 @@ body {
   content: "";
   position: absolute;
   inset: 0 0 auto;
-  height: 0.34rem;
+  height: 0.5rem;
   background: linear-gradient(90deg, var(--farm-grass), var(--farm-sun), var(--farm-carrot));
 }
 
@@ -257,7 +338,7 @@ body {
   bottom: 0.8rem;
   width: 2.3rem;
   height: 2.3rem;
-  border-radius: 8px;
+  border-radius: 12px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0)), var(--farm-sun);
   opacity: 0.55;
   transform: rotate(8deg);
@@ -317,10 +398,11 @@ body {
   position: relative;
   min-height: 8.6rem;
   padding: 1rem;
-  border: 1px solid var(--farm-line);
-  border-radius: 8px;
+  border: 3px solid rgba(151, 111, 47, 0.18);
+  border-radius: 14px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 247, 223, 0.92)), var(--farm-paper);
   color: var(--farm-ink);
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.78);
 }
 
 [data-md-color-scheme="slate"] .farm-step {
@@ -333,7 +415,7 @@ body {
   height: 2rem;
   place-items: center;
   margin-bottom: 0.65rem;
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--farm-grass);
   color: #fff;
   font-size: 0.72rem;
@@ -389,18 +471,28 @@ body {
   }
 }
 
+@keyframes mascot-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
 @media screen and (max-width: 960px) {
   .farm-hero {
     min-height: 620px;
     background:
-      linear-gradient(180deg, rgba(255, 247, 223, 0.94), rgba(255, 247, 223, 0.7) 42%, rgba(255, 247, 223, 0.16)),
-      url("../images/cozy-farm-study-hero.webp") center bottom / cover no-repeat;
+      linear-gradient(180deg, rgba(255, 247, 223, 0.94), rgba(255, 247, 223, 0.62) 40%, rgba(255, 247, 223, 0.08)),
+      url("../images/game-map-hero.webp") center bottom / cover no-repeat;
   }
 
   [data-md-color-scheme="slate"] .farm-hero {
     background:
       linear-gradient(180deg, rgba(23, 34, 20, 0.94), rgba(23, 34, 20, 0.76) 42%, rgba(23, 34, 20, 0.24)),
-      url("../images/cozy-farm-study-hero.webp") center bottom / cover no-repeat;
+      url("../images/game-map-hero.webp") center bottom / cover no-repeat;
   }
 
   .farm-grid,
@@ -413,6 +505,7 @@ body {
   .farm-hero {
     margin-right: -0.8rem;
     margin-left: -0.8rem;
+    min-height: 690px;
   }
 
   .farm-grid,
@@ -427,6 +520,30 @@ body {
 
   .farm-cloud {
     display: none;
+  }
+
+  .game-hud {
+    display: none;
+  }
+
+  .game-dock {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    justify-content: space-between;
+  }
+
+  .game-dock a {
+    min-width: auto;
+    flex: 1;
+    font-size: 0.66rem;
+  }
+
+  .study-mascot {
+    right: 0.85rem;
+    bottom: 3.85rem;
+    width: 118px;
+    min-width: 118px;
   }
 }
 
