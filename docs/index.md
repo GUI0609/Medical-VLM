@@ -18,13 +18,14 @@ hide:
       把医学视觉语言模型、工程实践、论文阅读和科研复盘，整理成一座可以继续扩建的学习庄园。
     </p>
     <div class="farm-actions">
-      <a class="farm-button farm-button--primary" href="notes/">开始学习</a>
-      <a class="farm-button" href="blog/">庄园日志</a>
+      <a class="farm-button farm-button--primary" href="create/">新建笔记</a>
+      <a class="farm-button" href="notes/">进入地图</a>
+      <a class="farm-button" href="plans/">今日计划</a>
     </div>
   </div>
   <nav class="game-dock" aria-label="摩尔笔记庄园快捷入口">
+    <a href="create/">写作</a>
     <a href="notes/ai/">AI</a>
-    <a href="notes/programming/">编程</a>
     <a href="notes/papers/">论文</a>
     <a href="notes/research/">科研</a>
     <a href="blog/">日志</a>
@@ -62,6 +63,21 @@ hide:
       <p>假设、实验、结果复盘和下一步投入决策。</p>
     </a>
   </div>
+</section>
+
+<section class="farm-section manor-quest-row">
+  <a class="manor-quest-card" href="create/">
+    <strong>创作台</strong>
+    <span>选模板、填信息、生成 Markdown</span>
+  </a>
+  <a class="manor-quest-card" href="notes/papers/">
+    <strong>论文库</strong>
+    <span>按问题、方法、证据、复现价值读论文</span>
+  </a>
+  <a class="manor-quest-card" href="plans/">
+    <strong>计划板</strong>
+    <span>把阅读、实验、写作和发布拆成任务</span>
+  </a>
 </section>
 
 <section class="farm-section manor-study-room">

@@ -35,12 +35,14 @@ theme:
 
 nav:
   - 首页: index.md
+  - 创作台: create/index.md
   - 学习笔记:
       - notes/index.md
       - AI: notes/ai/index.md
       - 编程: notes/programming/index.md
-      - 论文: notes/papers/index.md
       - 科研: notes/research/index.md
+  - 论文库: notes/papers/index.md
+  - 计划板: plans/index.md
   - 博客:
       - blog/index.md
   - 标签: tags.md
