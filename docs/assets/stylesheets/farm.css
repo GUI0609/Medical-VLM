@@ -80,8 +80,8 @@ body {
   display: grid;
   align-items: center;
   background:
-    linear-gradient(90deg, rgba(255, 251, 224, 0.96), rgba(255, 251, 224, 0.78) 31%, rgba(255, 251, 224, 0.16) 60%, rgba(255, 251, 224, 0) 100%),
-    url("../images/game-map-hero.webp") center right / cover no-repeat;
+    linear-gradient(90deg, rgba(255, 251, 224, 0.96), rgba(255, 251, 224, 0.74) 34%, rgba(255, 251, 224, 0.14) 62%, rgba(255, 251, 224, 0) 100%),
+    url("../images/manor/village-hero.webp") center / cover no-repeat;
   border: 4px solid rgba(255, 184, 56, 0.42);
   border-radius: 12px;
   box-shadow: 0 18px 0 rgba(141, 183, 72, 0.16), 0 24px 42px rgba(47, 110, 41, 0.18);
@@ -90,7 +90,7 @@ body {
 [data-md-color-scheme="slate"] .farm-hero {
   background:
     linear-gradient(90deg, rgba(23, 34, 20, 0.92), rgba(23, 34, 20, 0.66) 34%, rgba(23, 34, 20, 0.1) 70%),
-    url("../images/game-map-hero.webp") center right / cover no-repeat;
+    url("../images/manor/village-hero.webp") center / cover no-repeat;
 }
 
 .farm-hero::after {
@@ -122,6 +122,21 @@ body {
   padding: clamp(3.6rem, 7vw, 6.4rem) clamp(1.2rem, 5vw, 4.8rem);
 }
 
+.manor-login-panel {
+  margin-left: clamp(1rem, 2.8vw, 2.2rem);
+  max-width: 520px;
+  border: 4px solid rgba(150, 105, 45, 0.22);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 236, 0.92), rgba(255, 242, 202, 0.88)),
+    rgba(255, 250, 222, 0.84);
+  box-shadow:
+    inset 0 3px 0 rgba(255, 255, 255, 0.88),
+    0 10px 0 rgba(157, 111, 45, 0.11),
+    0 22px 42px rgba(67, 110, 42, 0.2);
+  backdrop-filter: blur(5px);
+}
+
 .farm-eyebrow,
 .farm-kicker,
 .farm-card__tag {
@@ -144,6 +159,7 @@ body {
 
 .farm-hero h1 span {
   display: block;
+  white-space: nowrap;
 }
 
 .farm-hero__lead {
@@ -171,9 +187,9 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0.55rem 1rem;
-  border: 3px solid rgba(137, 96, 43, 0.28);
-  border-radius: 8px;
-  background: rgba(255, 250, 240, 0.84);
+  border: 3px solid rgba(255, 138, 37, 0.28);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff9df, #ffe1a0);
   color: var(--farm-ink) !important;
   font-weight: 800;
   box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.78), 0 8px 0 rgba(140, 96, 35, 0.12), 0 12px 20px rgba(64, 92, 44, 0.12);
@@ -188,7 +204,7 @@ body {
 
 .farm-button--primary {
   border-color: rgba(232, 144, 45, 0.28);
-  background: linear-gradient(180deg, #ffe15d, #ff962c);
+  background: linear-gradient(180deg, #fff26a, #ff9a2f);
 }
 
 .game-hud {
@@ -307,11 +323,11 @@ body {
   --farm-rotate-x: 0deg;
   --farm-rotate-y: 0deg;
   position: relative;
-  min-height: 12.8rem;
+  min-height: 13.8rem;
   overflow: hidden;
-  padding: 1.05rem;
-  border: 3px solid rgba(151, 111, 47, 0.22);
-  border-radius: 14px;
+  padding: 1rem 1rem 1.2rem;
+  border: 4px solid rgba(255, 169, 72, 0.28);
+  border-radius: 18px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 249, 223, 0.96)),
     var(--farm-paper);
@@ -327,21 +343,12 @@ body {
   content: "";
   position: absolute;
   inset: 0 0 auto;
-  height: 0.5rem;
-  background: linear-gradient(90deg, var(--farm-grass), var(--farm-sun), var(--farm-carrot));
+  height: 0.58rem;
+  background: linear-gradient(90deg, #ff7fb1, #fff26a, #85d64a, #4fc3ff);
 }
 
 .farm-card::after {
-  content: "";
-  position: absolute;
-  right: 0.8rem;
-  bottom: 0.8rem;
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0)), var(--farm-sun);
-  opacity: 0.55;
-  transform: rotate(8deg);
+  content: none;
 }
 
 .farm-card:hover,
@@ -359,6 +366,21 @@ body {
   margin: 0.45rem 0 0.45rem;
   color: var(--farm-ink);
   font-size: 1.05rem;
+}
+
+.farm-card__icon {
+  display: block;
+  width: 5.2rem;
+  height: 4.2rem;
+  object-fit: contain;
+  margin: 0.25rem 0 0.5rem auto;
+  filter: drop-shadow(0 8px 10px rgba(88, 74, 38, 0.14));
+  transition: transform 180ms ease;
+}
+
+.farm-card:hover .farm-card__icon,
+.farm-card:focus-visible .farm-card__icon {
+  transform: translateY(-4px) rotate(3deg) scale(1.05);
 }
 
 .farm-card p {
@@ -403,6 +425,60 @@ body {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 247, 223, 0.92)), var(--farm-paper);
   color: var(--farm-ink);
   box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.78);
+}
+
+.manor-study-room {
+  position: relative;
+  min-height: 410px;
+  overflow: hidden;
+  border: 4px solid rgba(255, 169, 72, 0.3);
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgba(255, 246, 210, 0.1), rgba(255, 246, 210, 0.72) 48%, rgba(255, 246, 210, 0.86)),
+    url("../images/manor/study-room.webp") center / cover no-repeat;
+  box-shadow: 0 18px 42px rgba(64, 92, 44, 0.16);
+}
+
+.manor-study-room__panel {
+  position: relative;
+  z-index: 1;
+  width: min(46%, 520px);
+  margin: 3.2rem 3.2rem 3.2rem auto;
+  padding: 1.25rem;
+  border: 4px solid rgba(255, 138, 37, 0.24);
+  border-radius: 18px;
+  background: rgba(255, 253, 236, 0.9);
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.82), 0 12px 0 rgba(157, 111, 45, 0.09);
+}
+
+.manor-study-room__panel h2 {
+  margin: 0.2rem 0 0.65rem;
+}
+
+.manor-study-room__panel p {
+  margin: 0;
+  color: color-mix(in srgb, var(--farm-ink) 74%, white);
+  line-height: 1.8;
+}
+
+.manor-task-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.manor-task-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.25rem 0.7rem;
+  border: 2px solid rgba(255, 138, 37, 0.26);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fffef2, #ffe8ad);
+  color: var(--farm-ink);
+  font-size: 0.75rem;
+  font-weight: 800;
 }
 
 [data-md-color-scheme="slate"] .farm-step {
@@ -486,18 +562,22 @@ body {
     min-height: 620px;
     background:
       linear-gradient(180deg, rgba(255, 247, 223, 0.94), rgba(255, 247, 223, 0.62) 40%, rgba(255, 247, 223, 0.08)),
-      url("../images/game-map-hero.webp") center bottom / cover no-repeat;
+      url("../images/manor/village-hero.webp") center bottom / cover no-repeat;
   }
 
   [data-md-color-scheme="slate"] .farm-hero {
     background:
       linear-gradient(180deg, rgba(23, 34, 20, 0.94), rgba(23, 34, 20, 0.76) 42%, rgba(23, 34, 20, 0.24)),
-      url("../images/game-map-hero.webp") center bottom / cover no-repeat;
+      url("../images/manor/village-hero.webp") center bottom / cover no-repeat;
   }
 
   .farm-grid,
   .farm-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .manor-study-room__panel {
+    width: min(82%, 520px);
   }
 }
 
@@ -506,6 +586,15 @@ body {
     margin-right: -0.8rem;
     margin-left: -0.8rem;
     min-height: 690px;
+  }
+
+  .manor-login-panel {
+    margin: 4.5rem 0.75rem 0;
+    padding: 1.2rem;
+  }
+
+  .farm-hero h1 {
+    font-size: clamp(1.85rem, 8.2vw, 2.15rem);
   }
 
   .farm-grid,
@@ -544,6 +633,18 @@ body {
     bottom: 3.85rem;
     width: 118px;
     min-width: 118px;
+  }
+
+  .manor-study-room {
+    min-height: 560px;
+    background:
+      linear-gradient(180deg, rgba(255, 246, 210, 0.1), rgba(255, 246, 210, 0.84) 58%, rgba(255, 246, 210, 0.94)),
+      url("../images/manor/study-room.webp") left top / cover no-repeat;
+  }
+
+  .manor-study-room__panel {
+    width: auto;
+    margin: 17rem 0.8rem 1rem;
   }
 }
 

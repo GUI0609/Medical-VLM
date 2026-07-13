@@ -1,5 +1,7 @@
 # Private inbox and local inputs
 inbox/
+pic/
+output/
 
 # Python environments and build output
 .venv/

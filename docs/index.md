@@ -7,25 +7,22 @@ hide:
 <section class="farm-hero">
   <div class="farm-hero__shade"></div>
   <div class="game-hud">
-    <span>今日任务：整理 1 篇笔记</span>
+    <span>今日任务：整理 1 篇公开笔记</span>
     <span>经验 +20</span>
-    <span>晴天</span>
+    <span>阳光小镇</span>
   </div>
-  <div class="farm-hero__content">
-    <p class="farm-eyebrow">Medical-VLM Game Notes</p>
-    <h1><span>Medical-VLM</span><span>学习小镇</span></h1>
+  <div class="farm-hero__content manor-login-panel">
+    <p class="farm-eyebrow">Medical-VLM Manor Notes</p>
+    <h1><span>Medical-VLM</span><span>摩尔笔记庄园</span></h1>
     <p class="farm-hero__lead">
-      把医学视觉语言模型、工程实践、论文阅读和科研复盘，整理成可继续生长的公开学习笔记。
+      把医学视觉语言模型、工程实践、论文阅读和科研复盘，整理成一座可以继续扩建的学习庄园。
     </p>
     <div class="farm-actions">
-      <a class="farm-button farm-button--primary" href="notes/">进入笔记田</a>
-      <a class="farm-button" href="blog/">查看日志屋</a>
+      <a class="farm-button farm-button--primary" href="notes/">开始学习</a>
+      <a class="farm-button" href="blog/">庄园日志</a>
     </div>
   </div>
-  <div class="farm-cloud farm-cloud--one"></div>
-  <div class="farm-cloud farm-cloud--two"></div>
-  <img class="study-mascot" src="assets/images/study-mascot.webp" alt="学习小镇原创卡通吉祥物" />
-  <nav class="game-dock" aria-label="学习小镇快捷入口">
+  <nav class="game-dock" aria-label="摩尔笔记庄园快捷入口">
     <a href="notes/ai/">AI</a>
     <a href="notes/programming/">编程</a>
     <a href="notes/papers/">论文</a>
@@ -41,25 +38,42 @@ hide:
   </div>
   <div class="farm-grid">
     <a class="farm-card farm-card--ai" href="notes/ai/">
+      <img class="farm-card__icon" src="assets/images/manor/icon-book.webp" alt="" />
       <span class="farm-card__tag">AI Plot</span>
       <h3>AI 菜圃</h3>
       <p>模型结构、训练策略、评估指标和医学多模态边界。</p>
     </a>
     <a class="farm-card farm-card--code" href="notes/programming/">
-      <span class="farm-card__tag">Code Barn</span>
-      <h3>编程工坊</h3>
+      <img class="farm-card__icon" src="assets/images/manor/icon-laptop.webp" alt="" />
+      <span class="farm-card__tag">Code Room</span>
+      <h3>编程小屋</h3>
       <p>依赖、脚本、自动化、部署和可复现实验工具链。</p>
     </a>
     <a class="farm-card farm-card--paper" href="notes/papers/">
-      <span class="farm-card__tag">Paper Mill</span>
-      <h3>论文磨坊</h3>
+      <img class="farm-card__icon" src="assets/images/manor/icon-house.webp" alt="" />
+      <span class="farm-card__tag">Paper House</span>
+      <h3>论文蘑菇屋</h3>
       <p>阅读卡片、方法对照、证据强度和复现价值判断。</p>
     </a>
     <a class="farm-card farm-card--research" href="notes/research/">
-      <span class="farm-card__tag">Research Field</span>
-      <h3>科研试验田</h3>
+      <img class="farm-card__icon" src="assets/images/manor/icon-trophy.webp" alt="" />
+      <span class="farm-card__tag">Research Quest</span>
+      <h3>科研任务榜</h3>
       <p>假设、实验、结果复盘和下一步投入决策。</p>
     </a>
+  </div>
+</section>
+
+<section class="farm-section manor-study-room">
+  <div class="manor-study-room__panel">
+    <p class="farm-kicker">Study Room</p>
+    <h2>今日学习公告</h2>
+    <p>先把原始材料放进本地 `inbox/`，只把确认可公开的笔记整理进庄园。</p>
+    <div class="manor-task-list">
+      <span>读一篇论文</span>
+      <span>补一段代码</span>
+      <span>写一条结论</span>
+    </div>
   </div>
 </section>
 
