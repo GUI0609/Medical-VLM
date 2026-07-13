@@ -21,14 +21,14 @@ theme:
     - content.code.annotate
   palette:
     - scheme: default
-      primary: indigo
-      accent: teal
+      primary: light green
+      accent: orange
       toggle:
         icon: material/weather-night
         name: 切换到深色模式
     - scheme: slate
-      primary: indigo
-      accent: teal
+      primary: green
+      accent: amber
       toggle:
         icon: material/weather-sunny
         name: 切换到浅色模式
@@ -88,7 +88,11 @@ markdown_extensions:
       custom_checkbox: true
 
 extra_javascript:
+  - assets/javascripts/farm.js
   - assets/javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - assets/stylesheets/farm.css
 
 strict: true
