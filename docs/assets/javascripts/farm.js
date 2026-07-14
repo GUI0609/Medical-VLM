@@ -46,6 +46,9 @@ document$.subscribe(() => {
     const generateButton = document.querySelector("#creator-generate");
     const copyButton = document.querySelector("#creator-copy");
     const downloadButton = document.querySelector("#creator-download");
+    const publishButton = document.querySelector("#creator-publish");
+    const confirmInput = document.querySelector("#creator-confirm");
+    const statusOutput = document.querySelector("#creator-status");
 
     const today = () => {
       const parts = new Intl.DateTimeFormat("en-CA", {
@@ -62,7 +65,7 @@ document$.subscribe(() => {
         .trim()
         .toLowerCase()
         .replace(/[\s_]+/g, "-")
-        .replace(/[^a-z0-9\u4e00-\u9fa5-]/g, "")
+        .replace(/[^a-z0-9-]/g, "")
         .replace(/-+/g, "-")
         .replace(/^-|-$/g, "");
 
@@ -113,9 +116,10 @@ document$.subscribe(() => {
 
     const generate = () => {
       const title = titleInput.value.trim() || "未命名笔记";
-      const slug = slugInput.value.trim() || slugify(title) || "untitled";
+      const slug = slugify(slugInput.value) || slugify(title) || "untitled";
       const summary = summaryInput.value.trim() || "这篇内容要回答的核心问题。";
       const template = templates[typeInput.value] || templates.blog;
+      slugInput.value = slug;
       pathOutput.textContent = template.path(slug);
       output.value = template.body(title, summary);
       localStorage.setItem(
@@ -128,6 +132,15 @@ document$.subscribe(() => {
           summary,
         })
       );
+    };
+
+    const setPublishStatus = (message, state = "") => {
+      statusOutput.textContent = message;
+      if (state) {
+        statusOutput.dataset.state = state;
+      } else {
+        delete statusOutput.dataset.state;
+      }
     };
 
     titleInput.addEventListener("input", () => {
@@ -155,6 +168,41 @@ document$.subscribe(() => {
       link.download = filename;
       link.click();
       URL.revokeObjectURL(url);
+    });
+
+    publishButton.addEventListener("click", async () => {
+      if (!confirmInput.checked) {
+        setPublishStatus("发布前必须确认内容不包含密钥、患者信息、未公开材料和内网凭证。", "error");
+        return;
+      }
+      if (!output.value) generate();
+      publishButton.disabled = true;
+      setPublishStatus("正在连接本地发布服务并执行严格构建...");
+      try {
+        const response = await fetch("http://127.0.0.1:8765/api/publish-note", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            path: pathOutput.textContent,
+            content: output.value,
+          }),
+        });
+        const result = await response.json();
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || "自动发布失败。");
+        }
+        setPublishStatus(
+          `已提交 ${result.commit} 并推送到 main。GitHub Actions 会自动部署：${result.actions_url}`,
+          "success"
+        );
+      } catch (error) {
+        setPublishStatus(
+          `未发布：${error.message} 先在服务器运行 .venv/bin/python scripts/local_publish_server.py。`,
+          "error"
+        );
+      } finally {
+        publishButton.disabled = false;
+      }
     });
 
     const saved = localStorage.getItem("medical-vlm-creator");

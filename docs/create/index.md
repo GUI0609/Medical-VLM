@@ -9,7 +9,7 @@ hide:
   <div>
     <p class="farm-kicker">Writing Desk</p>
     <h2>从新建到写完：先生成模板，再进入 Git</h2>
-    <p>这是静态 GitHub Pages 站点，网页不能直接写入仓库。这里负责生成规范 Markdown，你复制后放入对应目录，构建通过再提交。</p>
+    <p>公开 GitHub Pages 不能直接写仓库。需要自动发布时，先在服务器启动本地发布服务，再从这里生成 Markdown 并推送到 Git。</p>
   </div>
 </section>
 
@@ -31,8 +31,8 @@ hide:
       <input id="creator-title" type="text" placeholder="例如：Med-VLM 论文阅读第一周" />
     </label>
     <label>
-      Slug
-      <input id="creator-slug" type="text" placeholder="med-vlm-week-1" />
+      Slug（英文路径）
+      <input id="creator-slug" type="text" placeholder="例如：day1-simplify" />
     </label>
     <label>
       标签
@@ -52,13 +52,21 @@ hide:
     <h2>生成结果</h2>
     <p class="creator-path" id="creator-path">路径会显示在这里</p>
     <textarea id="creator-output" rows="24" spellcheck="false"></textarea>
+    <label class="creator-confirm">
+      <input id="creator-confirm" type="checkbox" />
+      我确认内容不包含 SSH 私钥、Token、密码、患者信息、未公开论文、内网地址或其他敏感材料。
+    </label>
+    <div class="creator-actions">
+      <button type="button" id="creator-publish">发布到 Git</button>
+    </div>
+    <p class="creator-status" id="creator-status">自动发布前先运行：`.venv/bin/python scripts/local_publish_server.py`</p>
   </div>
 </section>
 
 ## 发布流程
 
 1. 在创作台生成 Markdown。
-2. 放入页面提示的路径，例如 `docs/blog/posts/2026-07-14-title.md`。
-3. 运行 `.venv/bin/mkdocs build --strict`。
-4. 检查无隐私、无患者信息、无 Token、无未公开论文内容。
-5. `git add`、`git commit`、`git push`，等待 GitHub Pages 部署。
+2. 如需自动发布，先在服务器运行 `.venv/bin/python scripts/local_publish_server.py`。
+3. 勾选敏感信息确认，点击“发布到 Git”。
+4. 本地服务会写入文件、运行 `.venv/bin/mkdocs build --strict`、提交并推送到 `main`。
+5. GitHub Actions 收到 push 后自动部署 GitHub Pages。
