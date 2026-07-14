@@ -21,14 +21,15 @@ hide:
       <a class="farm-button farm-button--primary" href="create/">新建笔记</a>
       <a class="farm-button" href="notes/">进入地图</a>
       <a class="farm-button" href="plans/">今日计划</a>
+      <a class="farm-button" href="assets-library/">素材库</a>
     </div>
   </div>
   <nav class="game-dock" aria-label="摩尔笔记庄园快捷入口">
     <a href="create/">写作</a>
+    <a href="assets-library/">素材</a>
     <a href="notes/ai/">AI</a>
     <a href="notes/papers/">论文</a>
     <a href="notes/research/">科研</a>
-    <a href="blog/">日志</a>
   </nav>
 </section>
 
@@ -77,6 +78,10 @@ hide:
   <a class="manor-quest-card" href="plans/">
     <strong>计划板</strong>
     <span>把阅读、实验、写作和发布拆成任务</span>
+  </a>
+  <a class="manor-quest-card" href="assets-library/">
+    <strong>素材库</strong>
+    <span>筛选图标并复制 Markdown 引用</span>
   </a>
 </section>
 

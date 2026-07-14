@@ -36,6 +36,7 @@ theme:
 nav:
   - 首页: index.md
   - 创作台: create/index.md
+  - 素材库: assets-library/index.md
   - 学习笔记:
       - notes/index.md
       - AI: notes/ai/index.md

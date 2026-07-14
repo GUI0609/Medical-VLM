@@ -490,7 +490,7 @@ body {
 }
 
 .manor-quest-row {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .manor-quest-card,
@@ -595,6 +595,12 @@ body {
   background:
     linear-gradient(90deg, rgba(255, 251, 224, 0.92), rgba(255, 251, 224, 0.62), rgba(255, 251, 224, 0.08)),
     url("../images/manor/planner-ui.webp") center / cover no-repeat;
+}
+
+.manor-page-hero--assets {
+  background:
+    linear-gradient(90deg, rgba(255, 251, 224, 0.94), rgba(255, 251, 224, 0.7), rgba(255, 251, 224, 0.12)),
+    url("../images/manor/library-board.webp") center / cover no-repeat;
 }
 
 .manor-link-grid {
@@ -758,6 +764,124 @@ body {
   font-weight: 800;
 }
 
+.asset-library {
+  margin: 1rem 0 2rem;
+}
+
+.asset-toolbar {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 4px solid rgba(255, 169, 72, 0.24);
+  border-radius: 18px;
+  background: rgba(255, 253, 236, 0.9);
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.82), 0 16px 32px rgba(64, 92, 44, 0.12);
+}
+
+.asset-toolbar label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--farm-ink);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.asset-toolbar input {
+  width: 100%;
+  min-height: 2.35rem;
+  padding: 0.35rem 0.65rem;
+  border: 3px solid rgba(255, 169, 72, 0.24);
+  border-radius: 14px;
+  background: #fffdf1;
+  color: var(--farm-ink);
+  font: inherit;
+}
+
+.asset-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.asset-filters button,
+.asset-card button {
+  min-height: 2.15rem;
+  border: 3px solid rgba(255, 138, 37, 0.24);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff26a, #ff9a2f);
+  color: var(--farm-ink);
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.7), 0 5px 0 rgba(142, 99, 42, 0.12);
+}
+
+.asset-filters button {
+  padding: 0.28rem 0.7rem;
+}
+
+.asset-filters button[aria-pressed="true"] {
+  background: linear-gradient(180deg, #c8f06a, #54b84f);
+}
+
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+}
+
+.asset-card {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.8rem;
+  border: 4px solid rgba(255, 169, 72, 0.24);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 249, 223, 0.96)),
+    var(--farm-paper);
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.84), 0 16px 32px rgba(64, 92, 44, 0.12);
+}
+
+.asset-card.is-hidden {
+  display: none;
+}
+
+.asset-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 2px solid rgba(255, 169, 72, 0.18);
+  border-radius: 14px;
+  background: #fffdf1;
+}
+
+.asset-card strong {
+  color: var(--farm-ink);
+  font-size: 0.86rem;
+}
+
+.asset-card span {
+  color: color-mix(in srgb, var(--farm-ink) 68%, white);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.asset-card code {
+  overflow: hidden;
+  padding: 0.35rem 0.45rem;
+  border-radius: 10px;
+  background: rgba(255, 240, 173, 0.72);
+  color: var(--farm-ink);
+  font-size: 0.64rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.asset-card button {
+  padding: 0.28rem 0.5rem;
+  font-size: 0.72rem;
+}
+
 [data-md-color-scheme="slate"] .farm-step {
   background: linear-gradient(180deg, rgba(35, 55, 27, 0.92), rgba(28, 42, 24, 0.96));
 }
@@ -850,6 +974,7 @@ body {
 
   .farm-grid,
   .farm-steps,
+  .manor-quest-row,
   .manor-link-grid,
   .quest-board {
     grid-template-columns: repeat(2, minmax(0, 1fr));
